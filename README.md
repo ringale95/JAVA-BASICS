@@ -1,2 +1,2 @@
-# JAVA-OOPS
+# JAVA-BASICS
 Related to OOPS and JAVA
