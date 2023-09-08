@@ -3,25 +3,40 @@ package models;
 import java.util.List;
 import java.util.ArrayList;
 
-public class Restaurant{
-    private int id;
-    private String name;
-    private List<FoodItem> menu;
 
+//Created a restaurant class with instance variables
+public class Restaurant{
+    private static int id;
+    private String name;
+    /* 
+        This is an Arraylist of objects of type 'FoodItem'.
+        As there is 1-many relationship from Restaurant to FoodItem
+     */
+    private List<FoodItem> menu; 
+    
+    //no-args Constructor for Restaurant
     public Restaurant(){
-        this.menu = new ArrayList<>();
+    /*
+        Initialize menu field with new empty ArrayList.
+        If not initialized then throws null pointer exception when we add
+        food items to the list. 
+    */
+        this.menu = new ArrayList<>(); 
     }
 
-    public Restaurant(int id,String name){
-        this.id = id;
+    //all-args Constructor for Restaurant
+    public Restaurant(String name){
+        this.id++;
         this.name = name;
         this.menu = new ArrayList<>();
     }
 
+    //Adding foodItems to the menu list
     public void addToMenu(FoodItem item){
         this.menu.add(item);
     }
 
+    // Getter & Setter
     public List<FoodItem> getMenu(){
         return this.menu;
     }
@@ -29,16 +44,16 @@ public class Restaurant{
     public String getName(){
         return this.name;
     }
-    
-    public String toString(){
-        return this.name;
-    }
-
+     
     public String getAllMenuItems(){
         String ret = "\n";
         for(FoodItem item: menu){
-            ret += item.getName() + "\n";
+            ret += item.getId()+"."+item.getName() + "\n";
         }
         return ret;
+    }
+
+    public String toString(){
+        return this.name;
     }
 }
