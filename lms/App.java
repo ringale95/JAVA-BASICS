@@ -23,6 +23,7 @@ public class App {
             System.out.println("3. Add Book to Cart");
             System.out.println("4. View Cart");
             System.out.println("5. Exit");
+            System.out.println("6. Search By Genre");
 
             System.out.print("Enter your choice: ");
             int choice = scanner.nextInt();
@@ -58,6 +59,8 @@ public class App {
                     pauseExecution();
                     break;
 
+                
+
                 case 3:
                     clearConsole();
                     System.out.println("Add Book to Cart:");
@@ -81,6 +84,18 @@ public class App {
                     System.out.println("Goodbye!");
                     scanner.close();
                     System.exit(0);
+
+                case 6:
+                    clearConsole();
+                    System.out.println("Get Book by Genre:");
+                    System.out.print("Enter Genre: ");
+                    genre = scanner.nextLine();
+                    //List<Book> booksByGenre = library.searchByGenre(genre);
+                    System.out.println("Books in "+ genre+ " are:");
+                    System.out.println(library.searchByGenre(genre));
+                    pauseExecution();
+                    break;
+
 
                 default:
                     System.out.println("Invalid choice. Please select a valid option.");

@@ -6,12 +6,12 @@ import java.util.*;
 
 public class Library{
     private String name;
-    private List<Book> booksCatalog;
+    private List<Book> booksCatalog; 
     private List<User> usersDirectory;
 
-    public Library(String name){
+    public Library(String name){ //Constructor are used to create and initialize object of a class
         this.name = name;
-        this.booksCatalog = new ArrayList<Book>();
+        this.booksCatalog = new ArrayList<Book>(); //
         this.usersDirectory = new ArrayList<User>();
     }
 
@@ -35,4 +35,16 @@ public class Library{
         return null;
     }
 
+    public String searchByGenre(String genre){
+        String ret = "";
+        //List<Book> listOfBooks = new ArrayList<>();
+        for(Book book:booksCatalog){
+            if(book.getGenre().contains(genre)){
+                //listOfBooks.add(book);    
+                ret += book + "\n";
+            }
+        }
+        //return listOfBooks; 
+        return ret;       
+    }
 }
