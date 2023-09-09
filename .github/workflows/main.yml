@@ -22,7 +22,8 @@ jobs:
 
     - name: Compile and run Java code
       run: |
-        cd oops/polymorphism
-        echo "Raveena's first GH Workflow"
-        javac Bookstore.java
-        java Bookstore
+        cd lms
+        echo "Packaging the lms app.."
+        javac *.java models/*.java
+        jar cfm lms.jar manifest.txt *.class models/
+        ls -al
